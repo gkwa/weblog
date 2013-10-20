@@ -1,0 +1,54 @@
+* here's how to get org-mode with jeckll setup with a default template
+
+I followed this guy's guide step by step
+http://twitch.nervestaple.com/2011/10/09/blogging_with_emacs
+
+sudo gem install rake
+sudo gem install --verbose --debug jekyll
+sudo gem install --verbose jekyll
+
+cd $HOME
+rm -rf /Users/demo/.org-timestamps
+rm -rf /tmp/christianhellsten-jekyll-template
+git clone https://github.com/christianhellsten/jekyll-template.git /tmp/christianhellsten-jekyll-template
+rm -rf $HOME/pdev/weblog/jekyll && mkdir -p $HOME/pdev/weblog/jekyll
+cp -R /tmp/christianhellsten-jekyll-template/* $HOME/pdev/weblog/jekyll
+cd $HOME/pdev/weblog/jekyll
+jekyll --watch serve
+open http://localhost:4000/
+
+** detailed log in getting jekyll installed
+
+gem install rake
+sudo gem install rake
+sudo gem install jekyll
+sudo gem install --verbose --debug jekyll
+sudo gem update --system
+sudo gem install --verbose --debug jekyll
+sudo gem install --verbose jekyll
+
+[demo@demos-MacBook-Pro-2:~(master)]$ sudo gem install --verbose --debug jekyll
+Exception `NameError' at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/command_manager.rb:163 - uninitialized constant Gem::Commands::InstallCommand
+Exception `NoMethodError' at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rational.rb:78 - undefined method `gcd' for Rational(1, 2):Rational
+Exception `Gem::LoadError' at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems.rb:777 - Could not find RubyGem test-unit (>= 0)
+
+Exception `Gem::LoadError' at /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems.rb:777 - Could not find RubyGem sources (> 0.0.1)
+
+GET http://rubygems.org/latest_specs.4.8.gz
+302 Moved Temporarily
+GET http://production.s3.rubygems.org/latest_specs.4.8.gz
+200 OK
+GET http://rubygems.org/specs.4.8.gz
+302 Moved Temporarily
+GET http://production.s3.rubygems.org/specs.4.8.gz
+200 OK
+
+** jekyll --watch serve
+
+from http://jekyllrb.com
+
+gem install jekyll
+jekyll new my-awesome-site
+cd my-awesome-site
+jekyll --watch serve
+# => Now browse to http://localhost:4000
